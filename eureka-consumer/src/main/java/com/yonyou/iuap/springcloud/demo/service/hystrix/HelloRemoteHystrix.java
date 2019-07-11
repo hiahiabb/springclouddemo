@@ -1,7 +1,10 @@
 package com.yonyou.iuap.springcloud.demo.service.hystrix;
 
+import org.springframework.stereotype.Component;
+
 import com.yonyou.iuap.springcloud.demo.service.HelloRemote;
 
+@Component
 public class HelloRemoteHystrix implements HelloRemote{
 
 	@Override
