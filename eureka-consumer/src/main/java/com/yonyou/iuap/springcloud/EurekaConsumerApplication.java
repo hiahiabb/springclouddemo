@@ -1,12 +1,16 @@
 package com.yonyou.iuap.springcloud;
 
+import java.util.Collections;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
+
+import com.yonyou.cloud.middleware.rpc.RPCBeanFactory;
+import com.yonyou.iuap.springcloud.thirdpart.service.IGoodsService;
 
 @SpringBootApplication
-@EnableDiscoveryClient
 @EnableFeignClients
 public class EurekaConsumerApplication {
 
@@ -14,4 +18,9 @@ public class EurekaConsumerApplication {
 		SpringApplication.run(EurekaConsumerApplication.class, args);
 	}
 
+	@Bean
+	public RPCBeanFactory factory() {
+		return new RPCBeanFactory("spring-eureka-consumer",
+				Collections.singletonList(IGoodsService.class.getName()));
+	}
 }
