@@ -164,6 +164,31 @@ access.secret=XXXXXX
 
 
 
+### 多接口实现方案
+
+因为iuap微服务治理平台是基于接口进行设计的,在实际业务中会存在多个接口,需要指定多个Feign接口的情况,但是如果多个接口在使用`@FeignClient`注解只指定`name`的时候且`name`值相同的情况下,程序在启动的时候会报错,这时候就需要在`@FeignClient`注解上增加一个参数`contextId`,用`contextId`区分不同的业务功能名称.`name`值不需要调整.
+
+参考示例:
+
+``` java
+@FeignClient(name="spring-eureka-provider",contextId="spring-eureka-provider2",fallback = HystrixService.class)
+public interface FeignInvoke2Service extends IHelloService{
+
+	@RequestMapping(value="/hello")
+	public String hello(@RequestParam(name = "name") String name);
+}
+....
+    
+@FeignClient(name="spring-eureka-provider",contextId="spring-eureka-provider1",fallback = HystrixService.class)
+public interface FeignInvokeService extends IOrderService{
+	
+	@RequestMapping(value="/order")
+	public String order(@RequestParam(name="userName")String userName,@RequestParam(name="goodsName")String goodsName);
+}
+```
+
+
+
 ### 三节点链路追踪
 
 spring-eureka-thirpart --> spring-eureka-consumer --> spring-eureka-provider
