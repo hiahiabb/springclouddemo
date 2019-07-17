@@ -21,10 +21,15 @@ public class EurekaProviderApplication {
 		SpringApplication.run(EurekaProviderApplication.class, args);
 	}
 
+//	@Bean
+//	public RPCBeanFactory factory() {
+//		return new RPCBeanFactory("spring-eureka-provider-bbc",
+//				new ArrayList<String>(Arrays.asList(IHelloService.class.getName(),IOrderService.class.getName())));
+//	}
+	
 	@Bean
 	public RPCBeanFactory factory() {
-		return new RPCBeanFactory("spring-eureka-provider",
-				new ArrayList<String>(Arrays.asList(IHelloService.class.getName(),IOrderService.class.getName())));
+	    return new RPCBeanFactory("spring-eureka-provider-bbc",
+	                              Collections.singletonList(IHelloService.class.getName()));
 	}
-	
 }

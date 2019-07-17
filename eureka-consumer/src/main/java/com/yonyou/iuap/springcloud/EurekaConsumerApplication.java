@@ -20,7 +20,7 @@ public class EurekaConsumerApplication {
 
 	@Bean
 	public RPCBeanFactory factory() {
-		return new RPCBeanFactory("spring-eureka-consumer",
+		return new RPCBeanFactory("spring-eureka-consumer-bbc",
 				Collections.singletonList(IGoodsService.class.getName()));
 	}
 }

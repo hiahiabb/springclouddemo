@@ -14,7 +14,7 @@ import com.yonyou.iuap.springcloud.feign.FeignInvokeService;
 public class ConsumerController {
 
 	@Autowired
-	//@Qualifier("spring-eureka-provider")
+	//@Qualifier("spring-eureka-provider-bbc")
 	private FeignInvoke2Service feignInvoke2Service;
 	
 	@RequestMapping("/hello/{name}")

@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name="spring-eureka-provider",contextId="spring-eureka-provider1",fallback = HystrixService.class)
+@FeignClient(name="spring-eureka-provider-bbc",contextId="spring-eureka-provider1",fallback = HystrixService.class)
 public interface FeignInvokeService extends IOrderService{
 
 	@RequestMapping(value="/order")
