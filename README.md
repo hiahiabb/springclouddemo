@@ -1,5 +1,7 @@
 # springclouddemo
 
+**注意!注意!注意! 重要的事情说三遍,在微服务治理平台中,resources/applicationproperties文件中的 spring.application.name 属性不能在微服务治理平台中注册,如果已经被别人注册,则服务无法启动!如果启动不成功,需要修改该属性对应的值.**
+
 ### SpringCloudDemo 目录结构说明
 
 * **eureka-server**  eureka服务提供方
