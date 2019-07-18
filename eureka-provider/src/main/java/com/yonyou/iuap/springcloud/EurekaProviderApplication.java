@@ -30,6 +30,6 @@ public class EurekaProviderApplication {
 	@Bean
 	public RPCBeanFactory factory() {
 	    return new RPCBeanFactory("spring-eureka-provider-bbc",
-	                              Collections.singletonList(IHelloService.class.getName()));
+	                              Collections.singletonList(IOrderService.class.getName()));
 	}
 }
