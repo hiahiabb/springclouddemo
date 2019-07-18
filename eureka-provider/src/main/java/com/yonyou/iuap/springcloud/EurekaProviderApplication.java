@@ -27,6 +27,7 @@ public class EurekaProviderApplication {
 //				new ArrayList<String>(Arrays.asList(IHelloService.class.getName(),IOrderService.class.getName())));
 //	}
 	
+	
 	@Bean
 	public RPCBeanFactory factory() {
 	    return new RPCBeanFactory("spring-eureka-provider-bbc",
